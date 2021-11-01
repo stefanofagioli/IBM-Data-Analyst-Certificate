@@ -81,8 +81,7 @@ def get_scatter_plot(site_dropdown, payload_slider):
     mask = (spacex_df['Payload Mass (kg)'] > low) & (spacex_df['Payload Mass (kg)'] < high)
     filtered_df = spacex_df[mask]
     if site_dropdown == 'ALL':
-        filtered_df1 = filtered_df[filtered_df['Launch Site']==site_dropdown]
-        fig = px.scatter(filtered_df1, x='Payload Mass (kg)', y='class', title= scat_title, color='Booster Version Category')
+        fig = px.scatter(spacex_df, x='Payload Mass (kg)', y='class', title= scat_title, color='Booster Version Category')
         return fig
 
     else:
